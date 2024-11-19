@@ -6,30 +6,24 @@
     <title>Táblázat</title>
 </head>
 <body>
+    <h1>Növények táblázata</h1>
     <table>
-        <tr>
-            <th>Név</th>    
-            <th>Típus</th>
-            <th>Jellemző</th>
-        </tr>
-        <tr>
-            <td>Monstera</td>
-            <td>Szobanövény</td>
-            <td>Nagyméretű levelek</td>
-        </tr>
-        <tr>
-            <td>Bambusz</td>
-            <td>Dísznövény</td>
-            <td>Gyors növekedés</td>
-        </tr>
-        <tr>
-            <td>Kaktusz</td>
-            <td>Pozsgás</td>
-            <td>Szárazságtűrő</td>
-        </tr>
-        
-        
-    
+    <tr> 
+        <th>Név</th>
+        <th>Típus</th>
+        <th>Jellemzők</th>
+        {% if plants %}
+        {% for plant in plants %}
+    </tr>
+    <tr>
+        <td>{{ plant.name }}</td> 
+        <td>{{ plant.type }}</td> 
+        <td>{{ plant.feature }}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
     </table>
+    <a href="/">Vissza az főoldalra</a>
 </body>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </html>

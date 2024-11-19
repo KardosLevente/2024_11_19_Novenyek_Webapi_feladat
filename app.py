@@ -10,10 +10,12 @@ plants = [
 
 @app.route('/', methods=["GET"])
 def index():
-    
     return render_template('index.html')
+
+@app.route('/tabla', methods=["GET"])
+def tabla():
+    return render_template('tabla.html', plants=plants)
 
 if __name__ == '__main__':
     app.run(debug=True)
-# @app.route('/tabla', methods=["GET"])
 
